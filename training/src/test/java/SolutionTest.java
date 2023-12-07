@@ -101,11 +101,12 @@ public class SolutionTest {
             assertArrayEquals(expectedArray, nums1);
         }
 
-        @Disabled // It worked on leetcode...
         @Test
         public void merge_oneEmptyArray_andOneNonEmptyArray() {
             // Given
-            int[] nums1 = {};
+            int[] nums1 = { 0 };
+            // Note that because m = 0, there are no elements in nums1. The 0 is only there
+            // to ensure the merge result can fit in nums1.
             int m = 0;
             int[] nums2 = { 1 };
             int n = 1;
