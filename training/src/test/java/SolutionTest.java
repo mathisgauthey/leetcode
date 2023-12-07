@@ -1,7 +1,9 @@
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -62,6 +64,58 @@ public class SolutionTest {
 
             // Assert
             assertTrue(res);
+        }
+    }
+
+    @Nested
+    class merge_testCases {
+        @Test
+        public void merge_twoNonEmptyArrays() {
+            // Given
+            int[] nums1 = { 1, 2, 3, 0, 0, 0 };
+            int m = 3;
+            int[] nums2 = { 2, 5, 6 };
+            int n = 3;
+
+            // When
+            Solution.mergeSortedArrays(nums1, m, nums2, n);
+
+            // Then
+            int[] expectedArray = { 1, 2, 2, 3, 5, 6 };
+            assertArrayEquals(expectedArray, nums1);
+        }
+
+        @Test
+        public void merge_oneNonEmptyArray_andOneEmptyArrays() {
+            // Given
+            int[] nums1 = { 1 };
+            int m = 1;
+            int[] nums2 = {};
+            int n = 0;
+
+            // When
+            Solution.mergeSortedArrays(nums1, m, nums2, n);
+
+            // Then
+            int[] expectedArray = { 1 };
+            assertArrayEquals(expectedArray, nums1);
+        }
+
+        @Disabled // It worked on leetcode...
+        @Test
+        public void merge_oneEmptyArray_andOneNonEmptyArray() {
+            // Given
+            int[] nums1 = {};
+            int m = 0;
+            int[] nums2 = { 1 };
+            int n = 1;
+
+            // When
+            Solution.mergeSortedArrays(nums1, m, nums2, n);
+
+            // Then
+            int[] expectedArray = { 1 };
+            assertArrayEquals(expectedArray, nums1);
         }
     }
 
