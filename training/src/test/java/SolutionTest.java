@@ -1,3 +1,4 @@
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -118,6 +119,47 @@ public class SolutionTest {
             int[] expectedArray = { 1 };
             assertArrayEquals(expectedArray, nums1);
         }
+    }
+
+    @Nested
+    class maxProduct_testCases {
+
+        @Test
+        public void maxProduct_testCase1() {
+            // GIVEN
+            int[] num = { 3, 4, 5, 2 };
+
+            // WHEN
+            int res = Solution.maxProduct(num);
+
+            // THEN
+            assertThat(res).isEqualTo(12);
+        }
+
+        @Test
+        public void maxProduct_testCase2() {
+            // GIVEN
+            int[] num = { 1, 5, 4, 5 };
+
+            // WHEN
+            int res = Solution.maxProduct(num);
+
+            // THEN
+            assertThat(res).isEqualTo(16);
+        }
+
+        @Test
+        public void maxProduct_testCase3() {
+            // GIVEN
+            int[] num = { 3, 7 };
+
+            // WHEN
+            int res = Solution.maxProduct(num);
+
+            // THEN
+            assertThat(res).isEqualTo(12);
+        }
+
     }
 
 }

@@ -95,4 +95,21 @@ public class Solution {
             j--;
         }
     }
+
+    public static int maxProduct(int[] num) {
+        int res;
+        int max = 0;
+        int second_max = 0;
+        for (int i = 0; i < num.length; i++) {
+            if (num[i] <= max && num[i] > second_max) {
+                second_max = num[i];
+            }
+            if (num[i] > max) {
+                second_max = max;
+                max = num[i];
+            }
+        }
+        res = (max - 1) * (second_max - 1);
+        return res;
+    }
 }
