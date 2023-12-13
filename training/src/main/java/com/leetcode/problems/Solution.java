@@ -114,32 +114,23 @@ public class Solution {
     }
 
     public static int strStr(String haystack, String needle) {
-        if (haystack.length() < needle.length()) {
+        int hayLength = haystack.length();
+        int needleLength = needle.length();
+        if (hayLength < needleLength) {
             return -1;
         }
-        int match = needle.length();
-        int count = 0;
-        int index = -1;
-        int j = 0;
-        for (int i = 0; i < haystack.length(); i++) {
-            // Si on trouve un nouveau caractère similaire, on ajoute au count
-            if (haystack.charAt(i) == needle.charAt(j)) {
-                if (count == 0) {// Si on trouve un premier match, on save l'index
-                    index = i;
-                }
-                count += 1;
-                j += 1;
-                if (count == match) {
-                    break;
-                }
+        // There is a total of n = (hayLength-needleLength+1) substrings of
+        // size needle in haystack. So you need to iterate from index 0 to
+        // index hayLength-needleLength.
+        for (int i = 0; i < hayLength - needleLength + 1; i++) {
+            int j = 0;
+            while (j < needleLength && haystack.charAt(i + j) == needle.charAt(j)) {
+                j++;
             }
-            // Si on ne trouve pas le mot en entier, on reset tout
-            else if (haystack.charAt(i) != needle.charAt(j) && count < match) {
-                count = 0;
-                index = -1;
-                j = 0;
+            if (j == needleLength) {
+                return i;
             }
         }
-        return index;
+        return -1;
     }
 }
