@@ -122,7 +122,7 @@ public class Solution {
         // There is a total of n = (hayLength-needleLength+1) substrings of
         // size needle in haystack. So you need to iterate from index 0 to
         // index hayLength-needleLength.
-        for (int i = 0; i < hayLength - needleLength + 1; i++) {
+        for (int i = 0; i <= hayLength - needleLength; i++) {
             int j = 0;
             while (j < needleLength && haystack.charAt(i + j) == needle.charAt(j)) {
                 j++;
