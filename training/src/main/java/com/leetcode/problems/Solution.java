@@ -122,12 +122,11 @@ public class Solution {
         int index = -1;
         int j = 0;
         for (int i = 0; i < haystack.length(); i++) {
-            // Si on trouve un premier match, on save l'index
-            if (haystack.charAt(i) == needle.charAt(j) && count == 0) {
-                index = i;
-            }
             // Si on trouve un nouveau caractère similaire, on ajoute au count
             if (haystack.charAt(i) == needle.charAt(j)) {
+                if (count == 0) {// Si on trouve un premier match, on save l'index
+                    index = i;
+                }
                 count += 1;
                 j += 1;
                 if (count == match) {
