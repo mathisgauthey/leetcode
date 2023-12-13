@@ -112,4 +112,35 @@ public class Solution {
         res = (max - 1) * (second_max - 1);
         return res;
     }
+
+    public static int strStr(String haystack, String needle) {
+        if (haystack.length() < needle.length()) {
+            return -1;
+        }
+        int match = needle.length();
+        int count = 0;
+        int index = -1;
+        int j = 0;
+        for (int i = 0; i < haystack.length(); i++) {
+            // Si on trouve un premier match, on save l'index
+            if (haystack.charAt(i) == needle.charAt(j) && count == 0) {
+                index = i;
+            }
+            // Si on trouve un nouveau caractère similaire, on ajoute au count
+            if (haystack.charAt(i) == needle.charAt(j)) {
+                count += 1;
+                j += 1;
+                if (count == match) {
+                    break;
+                }
+            }
+            // Si on ne trouve pas le mot en entier, on reset tout
+            else if (haystack.charAt(i) != needle.charAt(j) && count < match) {
+                count = 0;
+                index = -1;
+                j = 0;
+            }
+        }
+        return index;
+    }
 }

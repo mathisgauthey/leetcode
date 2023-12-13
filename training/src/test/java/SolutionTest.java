@@ -162,4 +162,86 @@ public class SolutionTest {
 
     }
 
+    @Nested
+    class strStr_testCases {
+
+        @Test
+        public void strStr_testCase1() {
+            // GIVEN
+            String haystack = "sabutsad";
+            String needle = "sad";
+
+            // WHEN
+            int result = Solution.strStr(haystack, needle);
+
+            // THEN
+            assertThat(result).isEqualTo(5);
+        }
+
+        @Test
+        public void strStr_testCase2() {
+            // GIVEN
+            String haystack = "leetcode";
+            String needle = "leeto";
+
+            // WHEN
+            int result = Solution.strStr(haystack, needle);
+
+            // THEN
+            assertThat(result).isEqualTo(-1);
+        }
+
+        @Test
+        public void strStr_testCase3() {
+            // GIVEN
+            String haystack = "programming";
+            String needle = "gram";
+
+            // WHEN
+            int result = Solution.strStr(haystack, needle);
+
+            // THEN
+            assertThat(result).isEqualTo(3);
+        }
+
+        @Test
+        public void strStr_testCase4() {
+            // GIVEN
+            String haystack = "hello";
+            String needle = "ll";
+
+            // WHEN
+            int result = Solution.strStr(haystack, needle);
+
+            // THEN
+            assertThat(result).isEqualTo(2);
+        }
+
+        @Test
+        public void strStr_testCase5() {
+            // GIVEN
+            String haystack = "aaa";
+            String needle = "aaaa";
+
+            // WHEN
+            int result = Solution.strStr(haystack, needle);
+
+            // THEN
+            assertThat(result).isEqualTo(-1);
+        }
+
+        @Test
+        public void strStr_testCase6() {
+            // GIVEN
+            String haystack = "mississippi";
+            String needle = "issip";
+
+            // WHEN
+            int result = Solution.strStr(haystack, needle);
+
+            // THEN
+            assertThat(result).isEqualTo(4);
+        }
+    }
+
 }
