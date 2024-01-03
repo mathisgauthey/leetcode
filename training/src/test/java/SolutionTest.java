@@ -11,6 +11,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import com.leetcode.problems.Solution;
+import java.util.Arrays;
 
 public class SolutionTest {
 
@@ -241,6 +242,41 @@ public class SolutionTest {
 
             // THEN
             assertThat(result).isEqualTo(4);
+        }
+    }
+
+    @Nested
+    class removeElement_testCases {
+        @Test
+        public void testRemoveElementExample1() {
+            // GIVEN
+            int[] nums = { 3, 2, 2, 3 };
+            int val = 3;
+            int[] expectedNums = { 2, 2 };
+            int expectedLength = 2;
+
+            // WHEN
+            int actualLength = Solution.removeElement(nums, val);
+
+            // THEN
+            assertEquals(expectedLength, actualLength);
+            assertArrayEquals(Arrays.copyOfRange(nums, 0, expectedLength), expectedNums);
+        }
+
+        @Test
+        public void testRemoveElementExample2() {
+            // GIVEN
+            int[] nums = { 0, 1, 2, 2, 3, 0, 4, 2 };
+            int val = 2;
+            int[] expectedNums = { 0, 1, 3, 0, 4 };
+            int expectedLength = 5;
+
+            // WHEN
+            int actualLength = Solution.removeElement(nums, val);
+
+            // THEN
+            assertEquals(expectedLength, actualLength);
+            assertArrayEquals(Arrays.copyOfRange(nums, 0, expectedLength), expectedNums);
         }
     }
 
