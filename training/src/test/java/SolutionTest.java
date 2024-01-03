@@ -280,4 +280,37 @@ public class SolutionTest {
         }
     }
 
+    @Nested
+    class removeDuplicates_testCases {
+        @Test
+        public void testRemoveDuplicates_Case1() {
+            // GIVEN
+            int[] nums = { 1, 1, 2 };
+            int expectedLength = 2;
+            int[] expectedNums = { 1, 2 };
+
+            // WHEN
+            int actualLength = Solution.removeDuplicates(nums);
+
+            // THEN
+            assertEquals(expectedLength, actualLength);
+            assertArrayEquals(Arrays.copyOfRange(nums, 0, expectedLength), expectedNums);
+        }
+
+        @Test
+        public void testRemoveDuplicates_Case2() {
+            // GIVEN
+            int[] nums = { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
+            int expectedLength = 5;
+            int[] expectedNums = { 0, 1, 2, 3, 4 };
+
+            // WHEN
+            int actualLength = Solution.removeDuplicates(nums);
+
+            // THEN
+            assertEquals(expectedLength, actualLength);
+            assertArrayEquals(Arrays.copyOfRange(nums, 0, expectedLength), expectedNums);
+        }
+    }
+
 }
